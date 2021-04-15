@@ -27,25 +27,35 @@ public class Serializzazione1 {
         // TODO code application logic here
         studente s = new studente("paolo","rossi",123);
         try {
-//            FileOutputStream FO = new FileOutputStream("test.ser");
-//            ObjectOutputStream OS = new ObjectOutputStream(FO);
-//            OS.writeObject(9);
-//            OS.writeObject("ciao");
-//            OS.writeObject(0.123);
+            FileOutputStream FO = new FileOutputStream("test.ser");
+            ObjectOutputStream OS = new ObjectOutputStream(FO);
+            OS.writeObject(9);
+            OS.writeObject("ciao");
+            OS.writeObject((float)0.123);
+//            OS.writeObject(s);
 //            OS.writeObject(false);
 //            OS.writeObject('a');
-//            OS.flush();
-//            OS.close();
-//            FO.close();
+            
+            
+            OS.flush();
+            OS.close();
+            FO.close();
+
             FileInputStream fi = new FileInputStream("test.ser");
             ObjectInputStream is = new ObjectInputStream(fi); 
             int v1 = (int) is.readObject();
             System.out.println(v1);
+            String v2 = (String) is.readObject();
+            System.out.println(v2);
+            float v3 =  (float) is.readObject();
+            System.out.println(v3);
+            
         } catch (FileNotFoundException ex) {
             System.out.println("inpossibile trovare il file");
         } catch (IOException ex) {
             System.out.println("hai rotto java");
-        } catch (ClassNotFoundException ex) {
+        } 
+        catch (ClassNotFoundException ex) {
             Logger.getLogger(Serializzazione1.class.getName()).log(Level.SEVERE, null, ex);
         }
         
