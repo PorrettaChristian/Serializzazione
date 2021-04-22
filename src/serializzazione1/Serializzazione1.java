@@ -25,39 +25,47 @@ public class Serializzazione1 {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        studente s = new studente("paolo","rossi",123);
-        try {
-            FileOutputStream FO = new FileOutputStream("test.ser");
-            ObjectOutputStream OS = new ObjectOutputStream(FO);
-            OS.writeObject(9);
-            OS.writeObject("ciao");
-            OS.writeObject((float)0.123);
-//            OS.writeObject(s);
+//        studente [] lista = {new studente("paolo","rossi",1),new studente("posaman","biachi",12),new studente("solillo","verde",123)};
+//        studente s = new studente("paolo","rossi",123);
+//        try {
+//            FileOutputStream FO = new FileOutputStream("test.ser");
+//            ObjectOutputStream OS = new ObjectOutputStream(FO);
+////            OS.writeObject(9);
+////            OS.writeObject("ciao");
+////            OS.writeObject((float)0.123); 
+//
+//            OS.writeObject(lista);
 //            OS.writeObject(false);
 //            OS.writeObject('a');
+//            
+//            
+//            OS.flush();
+//            OS.close();
+//            FO.close();
+//
+//            FileInputStream fi = new FileInputStream("test.ser");
+//            ObjectInputStream is = new ObjectInputStream(fi); 
+//            studente [] v1 = (studente []) is.readObject();
+//            for (studente ss : v1){
+//               System.out.println(ss.toString()); 
+//            }
+            Thread t = new Thread(new thread());
+            t.start();
+            
+//            String v2 = (String) is.readObject();
+//            System.out.println(v2);
+//            float v3 =  (float) is.readObject();
+//            System.out.println(v3);
             
             
-            OS.flush();
-            OS.close();
-            FO.close();
-
-            FileInputStream fi = new FileInputStream("test.ser");
-            ObjectInputStream is = new ObjectInputStream(fi); 
-            int v1 = (int) is.readObject();
-            System.out.println(v1);
-            String v2 = (String) is.readObject();
-            System.out.println(v2);
-            float v3 =  (float) is.readObject();
-            System.out.println(v3);
-            
-        } catch (FileNotFoundException ex) {
-            System.out.println("inpossibile trovare il file");
-        } catch (IOException ex) {
-            System.out.println("hai rotto java");
-        } 
-        catch (ClassNotFoundException ex) {
-            Logger.getLogger(Serializzazione1.class.getName()).log(Level.SEVERE, null, ex);
-        }
+//        } catch (FileNotFoundException ex) {
+//            System.out.println("inpossibile trovare il file");
+//        } catch (IOException ex) {
+//            System.out.println("hai rotto java");
+//        } 
+//        catch (ClassNotFoundException ex) {
+//            Logger.getLogger(Serializzazione1.class.getName()).log(Level.SEVERE, null, ex);
+//        }
         
     }
     
